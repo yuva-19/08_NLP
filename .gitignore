@@ -1,12 +1,17 @@
-# Pretrained embeddings
+# =====================================
+# PRETRAINED EMBEDDINGS
+# =====================================
+
+# GloVe and other downloaded embedding files
 12 — PRETRAINED EMBEDDINGS/*.txt
 12 — PRETRAINED EMBEDDINGS/*.vec
-
+12 — PRETRAINED EMBEDDINGS/*.bin
 
 # =====================================
-# DATASETS - IMAGES
+# DATASETS
 # =====================================
 
+# Image datasets
 *.jpg
 *.jpeg
 *.png
@@ -27,23 +32,16 @@ validation/
 valid/
 test/
 
-# =====================================
-# DATA FILES
-# =====================================
-
-*.csv
-*.tsv
-*.json
-*.jsonl
+# Large dataset files
 *.parquet
 *.feather
 *.pkl
 *.pickle
 *.h5
 *.hdf5
-*.mat
 *.npy
 *.npz
+*.mat
 
 # =====================================
 # MODEL WEIGHTS & CHECKPOINTS
@@ -57,7 +55,6 @@ test/
 *.tflite
 *.safetensors
 *.engine
-*glove.6B.50d.txt
 
 checkpoints/
 weights/
@@ -83,13 +80,13 @@ env/
 ENV/
 
 # =====================================
-# JUPYTER NOTEBOOKS
+# JUPYTER
 # =====================================
 
 .ipynb_checkpoints/
 
 # =====================================
-# IDE & EDITOR FILES
+# IDE & EDITOR
 # =====================================
 
 .vscode/
@@ -132,7 +129,7 @@ dist/
 *.egg-info/
 
 # =====================================
-# OTHER
+# OTHER CACHE FILES
 # =====================================
 
 .cache/
