@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Multilingual Translator</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🌐 Multilingual Translator</h1>
+
+        <p class="subtitle">
+            Powered by a pretrained NLLB-200 multilingual model
+        </p>
+
+
+        <!-- Language Selection -->
+
+        <div class="language-row">
+
+            <div class="language-group">
+
+                <label for="source-language">
+                    From
+                </label>
+
+                <select id="source-language">
+
+                    <option value="English">
+                        English
+                    </option>
+
+                    <option value="Tamil">
+                        Tamil
+                    </option>
+
+                    <option value="French">
+                        French
+                    </option>
+
+                    <option value="German">
+                        German
+                    </option>
+
+                    <option value="Japanese">
+                        Japanese
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                id="swap-button"
+                class="swap-button"
+                title="Swap languages"
+            >
+                ⇄
+            </button>
+
+
+            <div class="language-group">
+
+                <label for="target-language">
+                    To
+                </label>
+
+                <select id="target-language">
+
+                    <option value="Tamil">
+                        Tamil
+                    </option>
+
+                    <option value="English">
+                        English
+                    </option>
+
+                    <option value="French">
+                        French
+                    </option>
+
+                    <option value="German">
+                        German
+                    </option>
+
+                    <option value="Japanese">
+                        Japanese
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- Input -->
+
+        <div class="text-section">
+
+            <label for="input-text">
+                Enter text
+            </label>
+
+            <textarea
+                id="input-text"
+                placeholder="Type or paste your text here..."
+                maxlength="1000"
+            ></textarea>
+
+            <div class="character-count">
+                <span id="char-count">0</span> / 1000
+            </div>
+
+        </div>
+
+
+        <!-- Translate Button -->
+
+        <button
+            id="translate-button"
+            class="translate-button"
+        >
+            Translate
+        </button>
+
+
+        <!-- Loading -->
+
+        <div
+            id="loading"
+            class="loading hidden"
+        >
+            Translating...
+        </div>
+
+
+        <!-- Error -->
+
+        <div
+            id="error-message"
+            class="error hidden"
+        ></div>
+
+
+        <!-- Output -->
+
+        <div class="text-section">
+
+            <label for="output-text">
+                Translation
+            </label>
+
+            <div
+                id="output-text"
+                class="output-box"
+            >
+                Your translation will appear here.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        // ----------------------------------------
+        // Get HTML elements
+        // ----------------------------------------
+
+        const sourceLanguage =
+            document.getElementById("source-language");
+
+        const targetLanguage =
+            document.getElementById("target-language");
+
+        const inputText =
+            document.getElementById("input-text");
+
+        const outputText =
+            document.getElementById("output-text");
+
+        const translateButton =
+            document.getElementById("translate-button");
+
+        const swapButton =
+            document.getElementById("swap-button");
+
+        const loading =
+            document.getElementById("loading");
+
+        const errorMessage =
+            document.getElementById("error-message");
+
+        const charCount =
+            document.getElementById("char-count");
+
+
+        // ----------------------------------------
+        // Character counter
+        // ----------------------------------------
+
+        inputText.addEventListener(
+            "input",
+            function () {
+
+                charCount.textContent =
+                    inputText.value.length;
+
+            }
+        );
+
+
+        // ----------------------------------------
+        // Swap languages
+        // ----------------------------------------
+
+        swapButton.addEventListener(
+            "click",
+            function () {
+
+                const oldSource =
+                    sourceLanguage.value;
+
+                sourceLanguage.value =
+                    targetLanguage.value;
+
+                targetLanguage.value =
+                    oldSource;
+
+                outputText.textContent =
+                    "Your translation will appear here.";
+
+            }
+        );
+
+
+        // ----------------------------------------
+        // Translation
+        // ----------------------------------------
+
+        translateButton.addEventListener(
+            "click",
+            async function () {
+
+                const text =
+                    inputText.value.trim();
+
+                const source =
+                    sourceLanguage.value;
+
+                const target =
+                    targetLanguage.value;
+
+
+                // Validate input
+
+                if (!text) {
+
+                    showError(
+                        "Please enter some text to translate."
+                    );
+
+                    return;
+
+                }
+
+
+                if (source === target) {
+
+                    showError(
+                        "Source and target languages must be different."
+                    );
+
+                    return;
+
+                }
+
+
+                // Reset UI
+
+                hideError();
+
+                outputText.textContent = "";
+
+                loading.classList.remove("hidden");
+
+                translateButton.disabled = true;
+
+
+                try {
+
+                    const response =
+                        await fetch(
+                            "/translate",
+                            {
+
+                                method: "POST",
+
+                                headers: {
+                                    "Content-Type":
+                                        "application/json"
+                                },
+
+                                body: JSON.stringify({
+
+                                    text: text,
+
+                                    source_language:
+                                        source,
+
+                                    target_language:
+                                        target
+
+                                })
+
+                            }
+                        );
+
+
+                    const data =
+                        await response.json();
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            data.error ||
+                            "Translation failed."
+                        );
+
+                    }
+
+
+                    outputText.textContent =
+                        data.translation;
+
+
+                }
+
+                catch (error) {
+
+                    showError(
+                        error.message
+                    );
+
+                }
+
+                finally {
+
+                    loading.classList.add("hidden");
+
+                    translateButton.disabled = false;
+
+                }
+
+            }
+        );
+
+
+        // ----------------------------------------
+        // Error functions
+        // ----------------------------------------
+
+        function showError(message) {
+
+            errorMessage.textContent =
+                message;
+
+            errorMessage.classList.remove(
+                "hidden"
+            );
+
+        }
+
+
+        function hideError() {
+
+            errorMessage.textContent = "";
+
+            errorMessage.classList.add(
+                "hidden"
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>

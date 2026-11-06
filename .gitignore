@@ -1,0 +1,133 @@
+
+# =====================================
+# DATASETS - IMAGES
+# =====================================
+
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.tif
+*.tiff
+*.webp
+*.gif
+
+# Dataset directories
+data/
+dataset/
+datasets/
+images/
+Image/
+train/
+validation/
+valid/
+test/
+
+# =====================================
+# DATA FILES
+# =====================================
+
+*.csv
+*.tsv
+*.json
+*.jsonl
+*.parquet
+*.feather
+*.pkl
+*.pickle
+*.h5
+*.hdf5
+*.mat
+*.npy
+*.npz
+
+# =====================================
+# MODEL WEIGHTS & CHECKPOINTS
+# =====================================
+
+*.pth
+*.pt
+*.ckpt
+*.onnx
+*.pb
+*.tflite
+*.safetensors
+*.engine
+
+checkpoints/
+weights/
+pretrained/
+runs/
+wandb/
+
+# =====================================
+# PYTHON CACHE
+# =====================================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# =====================================
+# VIRTUAL ENVIRONMENTS
+# =====================================
+
+venv/
+.venv/
+env/
+ENV/
+
+# =====================================
+# JUPYTER NOTEBOOKS
+# =====================================
+
+.ipynb_checkpoints/
+
+# =====================================
+# IDE & EDITOR FILES
+# =====================================
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =====================================
+# LOGS & TEMPORARY FILES
+# =====================================
+
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+
+# =====================================
+# OS FILES
+# =====================================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =====================================
+# ENVIRONMENT VARIABLES
+# =====================================
+
+.env
+.env.*
+!.env.example
+
+# =====================================
+# BUILD FILES
+# =====================================
+
+build/
+dist/
+*.egg-info/
+
+# =====================================
+# OTHER
+# =====================================
+
+.cache/
