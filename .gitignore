@@ -1,3 +1,7 @@
+# Pretrained embeddings
+12 — PRETRAINED EMBEDDINGS/*.txt
+12 — PRETRAINED EMBEDDINGS/*.vec
+
 
 # =====================================
 # DATASETS - IMAGES
@@ -53,6 +57,7 @@ test/
 *.tflite
 *.safetensors
 *.engine
+*glove.6B.50d.txt
 
 checkpoints/
 weights/
