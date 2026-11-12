@@ -43,10 +43,12 @@ test/
 *.npz
 *.mat
 
+
 # =====================================
 # MODEL WEIGHTS & CHECKPOINTS
 # =====================================
 
+# Ignore all model weights globally
 *.pth
 *.pt
 *.ckpt
@@ -56,11 +58,29 @@ test/
 *.safetensors
 *.engine
 
+# Ignore checkpoint directories globally
 checkpoints/
 weights/
 pretrained/
 runs/
 wandb/
+
+# =====================================
+# LANDMARK RECOGNITION - ALLOW CHECKPOINTS
+# =====================================
+
+!46 — LANDMARK RECOGNITION/checkpoints/
+!46 — LANDMARK RECOGNITION/checkpoints/best_feature_extraction.pth
+!46 — LANDMARK RECOGNITION/checkpoints/feature_extraction_latest.pth
+
+# =====================================
+# APPLE FACE ID - ALLOW CHECKPOINTS
+# =====================================
+
+!45 — APPLE FACE ID  (FACIAL RECOGNITION PROJECTS)/checkpoints/
+!45 — APPLE FACE ID  (FACIAL RECOGNITION PROJECTS)/checkpoints/epoch_checkpoint.pth
+!45 — APPLE FACE ID  (FACIAL RECOGNITION PROJECTS)/checkpoints/latest_checkpoint.pth
+
 
 # =====================================
 # PYTHON CACHE
