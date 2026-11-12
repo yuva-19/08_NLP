@@ -71,7 +71,6 @@ wandb/
 
 !46 — LANDMARK RECOGNITION/checkpoints/
 !46 — LANDMARK RECOGNITION/checkpoints/best_feature_extraction.pth
-!46 — LANDMARK RECOGNITION/checkpoints/feature_extraction_latest.pth
 
 # =====================================
 # APPLE FACE ID - ALLOW CHECKPOINTS
