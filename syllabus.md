@@ -2636,6 +2636,488 @@ GUVI identifies Google Street View landmark recognition among the Computer Visio
 
 ---
 
+# MODULE 34 — SPEECH PROCESSING & AUTOMATIC SPEECH RECOGNITION (ASR)
+
+## 34.1 Introduction to Audio & Speech Processing
+
+Understand:
+
+- What is digital audio?
+- Speech processing vs audio processing
+- Speech recognition vs speech synthesis
+- Automatic Speech Recognition (ASR)
+- Speech-to-Text systems
+- Audio classification
+- Speech Emotion Recognition (SER)
+- Real-world applications of speech processing
+
+### Applications
+
+- Voice assistants
+- Speech-to-text transcription
+- Voice authentication
+- Emotion detection
+- Meeting transcription
+- Language translation
+- Voice-controlled applications
+
+## 34.2 Understanding Audio Signals
+
+Understand how sound is represented digitally.
+
+- Sound waves
+- Amplitude
+- Frequency
+- Time period
+- Wavelength
+- Phase
+- Analog vs digital signals
+- Continuous vs discrete signals
+
+### Important Audio Parameters
+
+- Sampling rate (Hz)
+- Bit depth
+- Number of channels
+- Mono vs Stereo
+- Audio duration
+- Bitrate
+- Audio formats (WAV, MP3, FLAC)
+
+Understand common sampling rates:
+
+- 8 kHz
+- 16 kHz
+- 22.05 kHz
+- 44.1 kHz
+- 48 kHz
+
+## 34.3 Audio Visualization & Listening
+
+Learn to inspect audio instead of treating it as just a file.
+
+- Loading audio files
+- Playing audio in Python
+- Listening to recorded speech
+- Waveform visualization
+- Amplitude vs time
+- Identifying silence
+- Identifying speech regions
+- Comparing different audio recordings
+- Understanding clipping and distortion
+
+### Practical Lab
+
+Use Python to:
+
+1. Load an audio file.
+2. Play the audio.
+3. Display its waveform.
+4. Identify speech and silence.
+5. Display audio duration.
+6. Inspect sampling rate and channels.
+
+## 34.4 Frequency Domain & Spectral Analysis
+
+Understand how audio behaves in the frequency domain.
+
+- Time domain vs frequency domain
+- Fourier Transform
+- Discrete Fourier Transform (DFT)
+- Fast Fourier Transform (FFT)
+- Frequency spectrum
+- Spectral magnitude
+- Spectral energy
+- Short-Time Fourier Transform (STFT)
+- Windowing
+- Spectrogram
+
+### Visualizations
+
+
+Waveform
+
+Amplitude over time
+
+
+Spectrogram
+
+Frequency energy over time
+
+## 34.5 Noise & Audio Enhancement
+
+Understand how environmental conditions affect speech recordings.
+
+### Types of Noise
+
+- Background noise
+- White noise
+- Gaussian noise
+- Traffic noise
+- Wind noise
+- Microphone noise
+- Electrical interference
+- Reverberation and echo
+
+### Noise Reduction
+
+- Noise identification
+- Signal-to-Noise Ratio (SNR)
+- Noise suppression
+- Spectral subtraction
+- Filtering
+- Low-pass filter
+- High-pass filter
+- Band-pass filter
+- Audio normalization
+- Clipping detection
+
+### Practical Lab
+
+Create noisy audio and experiment with:
+
+```
+Original Audio
+      ↓
+Add Background Noise
+      ↓
+Listen to Noisy Audio
+      ↓
+Visualize Waveform
+      ↓
+Apply Noise Reduction
+      ↓
+Listen to Enhanced Audio
+      ↓
+Compare Spectrograms
+```
+
+## 34.6 Audio Preprocessing
+
+Understand how raw audio is prepared for machine-learning models.
+
+- Audio loading
+- Resampling
+- Mono conversion
+- Normalization
+- Silence removal
+- Voice Activity Detection (VAD)
+- Audio segmentation
+- Fixed-length audio
+- Padding
+- Trimming
+- Audio augmentation
+
+### Audio Augmentation
+
+- Adding background noise
+- Time stretching
+- Pitch shifting
+- Volume variation
+- Time shifting
+- Speed variation
+
+## 34.7 Speech Feature Extraction
+
+Understand how meaningful information is extracted from speech signals.
+
+### Time-Domain Features
+
+- Mean amplitude
+- RMS energy
+- Zero Crossing Rate (ZCR)
+- Signal energy
+
+### Frequency-Domain Features
+
+- Spectral centroid
+- Spectral bandwidth
+- Spectral rolloff
+- Spectral contrast
+- Spectral flux
+
+### Important Speech Features
+
+- Mel scale
+- Mel spectrogram
+- Mel-Frequency Cepstral Coefficients (MFCC)
+- Chroma features
+- Log-Mel spectrogram
+
+Understand:
+
+- Why MFCC is used in speech processing
+- Why Mel scale approximates human auditory perception
+- Difference between waveform, spectrogram and MFCC
+- How speech features represent vocal characteristics
+
+### Practical Lab
+
+Extract and visualize:
+
+- Waveform
+- Spectrogram
+- Mel spectrogram
+- MFCC
+- RMS energy
+- Zero Crossing Rate
+
+## 34.8 Speech Recognition Fundamentals
+
+Understand how computers convert spoken language into text.
+
+### ASR Pipeline
+
+```
+Human Speech
+     ↓
+Audio Recording
+     ↓
+Audio Preprocessing
+     ↓
+Feature Extraction
+     ↓
+Speech Recognition Model
+     ↓
+Text Prediction
+     ↓
+Recognized Sentence
+```
+
+### Traditional ASR Concepts
+
+- Acoustic modelling
+- Language modelling
+- Pronunciation modelling
+- Phonemes
+- Graphemes
+- Vocabulary
+- Word decoding
+- Hidden Markov Models (HMM)
+- Gaussian Mixture Models (GMM)
+
+### Modern ASR Concepts
+
+- Deep learning-based ASR
+- CTC (Connectionist Temporal Classification)
+- Encoder-decoder architecture
+- Attention mechanism
+- Transformer-based ASR
+- End-to-end speech recognition
+- Self-supervised speech learning
+
+Understand the difference between traditional and modern ASR architectures.
+
+## 34.9 Modern Speech Recognition Models
+
+Study the following models conceptually and practically:
+
+- DeepSpeech
+- Wav2Vec 2.0
+- Whisper
+- Speech Transformer
+
+Focus on:
+
+- Model architecture
+- Input representation
+- Training approach
+- Output generation
+- Multilingual support
+- Advantages and limitations
+
+### Practical Lab
+
+Use a pretrained Whisper model to:
+
+1. Load an audio recording.
+2. Perform speech-to-text transcription.
+3. Display the recognized text.
+4. Compare the transcription with the actual sentence.
+5. Experiment with different audio recordings.
+
+## 34.10 Speech Recognition Evaluation
+
+Understand how to evaluate speech-to-text systems.
+
+- Word Error Rate (WER)
+- Character Error Rate (CER)
+- Substitution
+- Deletion
+- Insertion
+- Transcription accuracy
+- Language-specific errors
+- Background noise effects
+- Accent-related recognition errors
+
+Word Error Rate:
+
+\\[ WER = \frac{S+D+I}{N} \\]
+
+Where:
+
+- S = Substitutions
+- D = Deletions
+- I = Insertions
+- N = Number of words in reference transcription
+
+## 34.11 Practical Audio Libraries
+
+Learn practical usage of:
+
+| Library        | Purpose                                        |
+| -------------- | ---------------------------------------------- |
+| `librosa`      | Audio loading, analysis and feature extraction |
+| `soundfile`    | Reading and writing audio                      |
+| `sounddevice`  | Recording and playing audio                    |
+| `scipy.signal` | Signal processing and filtering                |
+| `matplotlib`   | Audio visualization                            |
+| `torchaudio`   | PyTorch audio processing                       |
+| `transformers` | Pretrained ASR models                          |
+
+## 34.12 Practical Lab — Complete Audio Analysis Toolkit
+
+Build a Python notebook that accepts an audio file and generates:
+
+```
+Audio File
+    |
+    ├── Audio Playback
+    |
+    ├── Audio Information
+    |      ├── Duration
+    |      ├── Sampling Rate
+    |      ├── Channels
+    |      └── Bit Depth
+    |
+    ├── Waveform Visualization
+    |
+    ├── Spectrogram
+    |
+    ├── Noise Analysis
+    |
+    ├── Noise Reduction
+    |
+    ├── MFCC Extraction
+    |
+    └── Speech-to-Text
+```
+
+### Project
+
+Audio Analysis & Speech-to-Text Toolkit
+
+# MODULE 35 — SPEECH EMOTION RECOGNITION (SER)
+
+Recommended before the emotion classification project
+
+Now we move from understanding what a person says to understanding how a person sounds while saying it.
+
+## 35.1 Speech Emotion Recognition Fundamentals
+
+- What is Speech Emotion Recognition?
+- Speech vs text-based emotion classification
+- Acoustic characteristics of emotions
+- Vocal expression
+- Prosody
+- Pitch variation
+- Speaking rate
+- Voice intensity
+- Emotional speech patterns
+
+## 35.2 Emotion-Related Audio Features
+
+- MFCC
+- Mel spectrogram
+- Pitch (F0)
+- RMS energy
+- Zero Crossing Rate
+- Spectral centroid
+- Spectral bandwidth
+- Chroma
+- Prosodic features
+
+## 35.3 Emotion Classification
+
+Understand:
+
+- Binary classification
+- Multiclass classification
+- Emotion labels
+- Class imbalance
+- Feature extraction
+- Feature normalization
+
+Typical emotions:
+
+- Happy
+- Sad
+- Angry
+- Neutral
+- Fearful
+- Disgust
+- Surprised
+
+## 35.4 Dataset Understanding
+
+Study:
+
+- RAVDESS
+- CREMA-D
+- TESS
+- SAVEE
+
+Understand:
+
+- Audio dataset structure
+- Emotion labels
+- Speaker IDs
+- Class distribution
+- Audio duration
+- Sampling rates
+- Train/validation/test splitting
+- Speaker-independent splitting
+- Dataset leakage
+
+## 35.5 Practical Feature Extraction
+
+Implement:
+
+- Audio loading
+- Waveform visualization
+- Noise analysis
+- MFCC extraction
+- Mel spectrogram extraction
+- Pitch extraction
+- RMS energy extraction
+- Feature aggregation
+
+## 35.6 Model Development
+
+Compare:
+
+- MFCC + Logistic Regression
+- MFCC + SVM
+- MFCC + Random Forest
+- CNN + Mel Spectrogram
+- CNN + LSTM
+- Pretrained audio models
+
+## 35.7 Evaluation
+
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- Confusion matrix
+- Per-emotion performance
+- Speaker-independent evaluation
+- Error analysis
+
+### Project
+
+Speech Emotion Classification System
+
 # MODULE 49 — MODERN COMPUTER VISION: VISION TRANSFORMERS
 
 ## 50.1 CNN → Transformer Transition
