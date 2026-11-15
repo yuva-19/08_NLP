@@ -2636,487 +2636,1503 @@ GUVI identifies Google Street View landmark recognition among the Computer Visio
 
 ---
 
-# MODULE 34 — SPEECH PROCESSING & AUTOMATIC SPEECH RECOGNITION (ASR)
 
-## 34.1 Introduction to Audio & Speech Processing
+# **MODULE 34 — HUMAN SPEECH, AUDIO & DIGITAL SIGNAL PROCESSING**
+
+Foundation — Must complete
+
+**Objective:** Understand how humans produce speech, how sound travels, how microphones capture it, and how computers represent and process audio.
+
+## **34.1 — Introduction to Audio & Speech Processing**
 
 Understand:
 
-- What is digital audio?
-- Speech processing vs audio processing
-- Speech recognition vs speech synthesis
-- Automatic Speech Recognition (ASR)
-- Speech-to-Text systems
+- What is sound?
+- What is audio?
+- What is speech?
+- Audio processing vs speech processing
+- Digital audio processing
+- Speech recognition
+- Speech synthesis
+- Speech-to-text
+- Text-to-speech
 - Audio classification
-- Speech Emotion Recognition (SER)
+- Speech emotion recognition
+- Speaker recognition
+- Speaker verification
 - Real-world applications of speech processing
 
-### Applications
+## **34.2 — Fundamentals of Sound Waves**
 
-- Voice assistants
-- Speech-to-text transcription
-- Voice authentication
-- Emotion detection
-- Meeting transcription
-- Language translation
-- Voice-controlled applications
+Understand the physical characteristics of sound.
 
-## 34.2 Understanding Audio Signals
-
-Understand how sound is represented digitally.
-
-- Sound waves
+- Sound wave formation
+- Mechanical waves
+- Longitudinal waves
+- Compression and rarefaction
 - Amplitude
 - Frequency
 - Time period
 - Wavelength
 - Phase
-- Analog vs digital signals
-- Continuous vs discrete signals
+- Speed of sound
+- Relationship between frequency, wavelength and velocity
+- Frequency and perceived pitch
+- Amplitude and perceived loudness
+- Decibels (dB)
+- Sound pressure level (SPL)
+- Human hearing frequency range
+- Audible, infrasonic and ultrasonic frequencies
 
-### Important Audio Parameters
+## **34.3 — Human Speech Production & Vocal Anatomy**
+
+Important — Missing from original syllabus
+
+Understand how the human body produces speech.
+
+**A. Respiratory system**
+
+- Lungs
+- Diaphragm
+- Airflow and air pressure
+- Pulmonic egressive airflow
+- Role of breathing in speech production
+
+**B. Phonatory system**
+
+- Larynx
+- Vocal folds (vocal cords)
+- Glottis
+- Vocal fold vibration
+- Voiced and unvoiced sounds
+- Fundamental frequency (F0)
+- Vocal fold tension
+- Vocal fold vibration rate
+
+**C. Articulatory system**
+
+- Tongue
+- Lips
+- Teeth
+- Hard palate
+- Soft palate (velum)
+- Alveolar ridge
+- Nasal cavity
+- Oral cavity
+- Jaw movement
+
+**D. Speech production mechanism**
+
+- How airflow becomes sound
+- How vocal folds generate voiced sounds
+- How unvoiced sounds are produced
+- Articulation
+- Place of articulation
+- Manner of articulation
+- Vowels and consonants
+- Nasal and oral sounds
+
+**E. Source-filter theory**
+
+- Glottal source
+- Vocal tract filter
+- Resonance
+- Formants
+- F1, F2 and F3
+- Relationship between vocal tract shape and speech characteristics
+
+## **34.4 — Introduction to Phonetics & Phonology**
+
+Understand the linguistic foundations of speech.
+
+- What is phonetics?
+- What is phonology?
+- Articulatory phonetics
+- Acoustic phonetics
+- Auditory phonetics
+- Phoneme
+- Allophone
+- Phone
+- Grapheme
+- Syllables
+- Consonants
+- Vowels
+- Diphthongs
+- Monophthongs
+- Voicing
+- International Phonetic Alphabet (IPA)
+- Phoneme vs grapheme
+- Phoneme vs syllable
+- Speech sounds vs written characters
+
+**Practical understanding:**
+
+- Identify vowels and consonants.
+- Compare voiced and unvoiced sounds.
+- Understand how different pronunciations produce different acoustic patterns.
+
+## **34.5 — Analog & Digital Audio Signals**
+
+Understand how physical sound becomes a digital signal.
+
+- Analog signals
+- Digital signals
+- Continuous-time signals
+- Discrete-time signals
+- Continuous amplitude
+- Discrete amplitude
+- Analog-to-Digital Conversion (ADC)
+- Digital-to-Analog Conversion (DAC)
+- Sampling
+- Quantization
+- Quantization error
+- Quantization noise
+- Nyquist-Shannon sampling theorem
+- Nyquist frequency
+- Aliasing
+- Anti-aliasing filters
+
+## **34.6 — Digital Audio Parameters**
+
+Understand the important properties of digital audio.
+
+**A. Sampling rate**
 
 - Sampling rate (Hz)
-- Bit depth
-- Number of channels
-- Mono vs Stereo
-- Audio duration
-- Bitrate
-- Audio formats (WAV, MP3, FLAC)
-
-Understand common sampling rates:
-
+- Samples per second
+- Sampling frequency
+- Nyquist frequency
 - 8 kHz
 - 16 kHz
 - 22.05 kHz
 - 44.1 kHz
 - 48 kHz
+- Why speech applications commonly use 16 kHz
+- Why changing a sampling-rate label is not actual resampling
 
-## 34.3 Audio Visualization & Listening
+**B. Bit depth**
 
-Learn to inspect audio instead of treating it as just a file.
+- Quantization levels
+- 8-bit audio
+- 16-bit audio
+- 24-bit audio
+- Dynamic range
+- Quantization noise
 
-- Loading audio files
-- Playing audio in Python
-- Listening to recorded speech
-- Waveform visualization
+**C. Channels**
+
+- Mono
+- Stereo
+- Multichannel audio
+- Left and right channels
+- Channel conversion
+
+**D. Other parameters**
+
+- Audio duration
+- Bitrate
+- File size
+- Uncompressed vs compressed audio
+- Lossless vs lossy compression
+
+**E. Audio formats**
+
+- WAV
+- MP3
+- FLAC
+- AAC
+- OGG
+- PCM
+
+## **34.7 — Time-Domain Signal Analysis**
+
+Understand audio signals in their original time representation.
+
+- What is the time domain?
 - Amplitude vs time
-- Identifying silence
-- Identifying speech regions
-- Comparing different audio recordings
-- Understanding clipping and distortion
+- Audio samples
+- Sample indexing
+- Signal duration
+- Peak amplitude
+- Mean amplitude
+- Absolute amplitude
+- RMS (Root Mean Square)
+- Signal energy
+- Zero Crossing Rate (ZCR)
+- Silence and non-silent regions
+- Periodic and aperiodic signals
+- Speech signal characteristics
+- Clipping and distortion
 
-### Practical Lab
+**Visualizations:**
 
-Use Python to:
+- Audio waveform
+- Speech waveform
+- Silence regions
+- Clipped waveform
+- Comparison of two audio waveforms
 
-1. Load an audio file.
-2. Play the audio.
-3. Display its waveform.
-4. Identify speech and silence.
-5. Display audio duration.
-6. Inspect sampling rate and channels.
+**Practical Lab 34A**
 
-## 34.4 Frequency Domain & Spectral Analysis
+Using Python:
 
-Understand how audio behaves in the frequency domain.
+- Load an audio file.
+- Extract audio samples.
+- Play the audio.
+- Plot the waveform.
+- Identify silence.
+- Calculate duration.
+- Calculate peak amplitude.
+- Calculate RMS energy.
+- Calculate Zero Crossing Rate.
+- Detect clipping.
+
+## **34.8 — Frequency-Domain Signal Analysis**
+
+Understand the frequency components present inside audio.
 
 - Time domain vs frequency domain
-- Fourier Transform
+- Frequency representation
+- Periodic signals and frequency components
+- Fourier series (conceptual)
+- Fourier Transform (FT)
 - Discrete Fourier Transform (DFT)
 - Fast Fourier Transform (FFT)
-- Frequency spectrum
-- Spectral magnitude
+- Frequency bins
+- Frequency resolution
+- Magnitude spectrum
+- Phase spectrum
+- Power spectrum
 - Spectral energy
-- Short-Time Fourier Transform (STFT)
+- Harmonics
+- Fundamental frequency
+- Frequency components of voiced speech
+
+**Practical Lab 34B**
+
+- Generate a sine wave.
+- Generate signals with multiple frequencies.
+- Apply FFT.
+- Visualize frequency spectrum.
+- Identify dominant frequencies.
+- Compare different speech sounds.
+
+## **34.9 — Short-Time Fourier Transform (STFT)**
+
+Understand why ordinary FFT is insufficient for analysing speech that changes over time.
+
+- Limitations of global FFT
+- Non-stationary signals
+- Short-time analysis
+- Frame-based audio processing
 - Windowing
-- Spectrogram
+- Window length
+- Hop length
+- Overlapping frames
+- Hann window
+- Hamming window
+- STFT calculation
+- Magnitude STFT
+- Power STFT
+- Time-frequency representation
 
-### Visualizations
+**Important concepts:**
 
+- Time-frequency resolution trade-off
+- Frequency resolution vs time resolution
+- Spectral leakage
+- Windowing effects
 
-Waveform
+## **34.10 — Spectrogram & Time-Frequency Visualization**
 
-Amplitude over time
+Understand how speech frequencies change over time.
 
+- What is a spectrogram?
+- STFT to spectrogram
+- Magnitude spectrogram
+- Power spectrogram
+- Log spectrogram
+- Decibel scaling
+- Time axis
+- Frequency axis
+- Color intensity and spectral energy
+- Reading spectrograms
+- Identifying vowels
+- Identifying consonants
+- Voiced and unvoiced regions
+- Formant structures
+- Speech transitions
 
-Spectrogram
+**Practical Lab 34C**
 
-Frequency energy over time
+- Generate a spectrogram.
+- Compare waveform and spectrogram.
+- Visualize a vowel.
+- Visualize a consonant.
+- Identify voiced and unvoiced regions.
 
-## 34.5 Noise & Audio Enhancement
+## **34.11 — Audio Noise & Signal Quality**
 
-Understand how environmental conditions affect speech recordings.
+Understand the difference between useful speech information and unwanted sound.
 
-### Types of Noise
+**Types of noise**
 
 - Background noise
 - White noise
 - Gaussian noise
+- Pink noise (conceptual)
 - Traffic noise
 - Wind noise
 - Microphone noise
 - Electrical interference
-- Reverberation and echo
+- Reverberation
+- Echo
 
-### Noise Reduction
+**Signal quality**
 
-- Noise identification
 - Signal-to-Noise Ratio (SNR)
+- Signal power
+- Noise power
+- SNR in decibels
+- Clean speech vs noisy speech
+- Noise floor
+- Clipping
+- Distortion
+
+**Noise reduction concepts**
+
 - Noise suppression
-- Spectral subtraction
 - Filtering
+- Spectral subtraction
+- Wiener filtering (conceptual)
+- Noise gates (conceptual)
+- Adaptive noise cancellation (conceptual)
+
+## **34.12 — Digital Audio Filtering**
+
+Understand how filters modify frequency components.
+
+- What is a digital filter?
+- Filter frequency response
+- Cutoff frequency
+- Passband
+- Stopband
+- Transition band
+- Filter order
+- FIR filters
+- IIR filters
 - Low-pass filter
 - High-pass filter
 - Band-pass filter
+- Band-stop filter
+- Notch filter
+- Butterworth filter
+- Filtering speech signals
+
+**Practical Lab 34D**
+
+- Add white noise to speech.
+- Design a low-pass filter.
+- Design a high-pass filter.
+- Apply a band-pass filter.
+- Compare original and filtered recordings.
+- Compare waveforms and spectrograms.
+- Evaluate whether filtering improved speech intelligibility.
+
+## **34.13 — Audio Enhancement & Restoration**
+
+Understand how to improve poor-quality audio recordings.
+
 - Audio normalization
-- Clipping detection
+- Peak normalization
+- RMS normalization
+- Loudness normalization (conceptual)
+- Dynamic range
+- Noise reduction
+- Spectral subtraction
+- Filtering-based enhancement
+- Reverberation reduction (conceptual)
+- Dereverberation (conceptual)
+- Speech enhancement vs noise suppression
+- Limitations of audio enhancement
+- Artifacts introduced by denoising
 
-### Practical Lab
+**Practical Lab 34E**
 
-Create noisy audio and experiment with:
+Create a noisy speech recording and follow:
 
 ```
-Original Audio
+Original Speech
       ↓
 Add Background Noise
       ↓
-Listen to Noisy Audio
+Listen to Noisy Speech
       ↓
 Visualize Waveform
       ↓
+Analyze SNR
+      ↓
 Apply Noise Reduction
       ↓
-Listen to Enhanced Audio
+Listen to Enhanced Speech
       ↓
 Compare Spectrograms
+      ↓
+Evaluate Improvement
 ```
 
-## 34.6 Audio Preprocessing
+## **34.14 — Python Audio Processing Environment**
 
-Understand how raw audio is prepared for machine-learning models.
+Learn the essential libraries and their roles.
 
-- Audio loading
-- Resampling
-- Mono conversion
-- Normalization
-- Silence removal
+| Library     | Purpose                     |
+| ----------- | --------------------------- |
+| NumPy       | Numerical audio arrays      |
+| SciPy       | Signal processing           |
+| Librosa     | Audio analysis and features |
+| SoundFile   | Reading and writing audio   |
+| SoundDevice | Recording and playback      |
+| Matplotlib  | Audio visualization         |
+| IPython     | Notebook audio playback     |
+| Torchaudio  | PyTorch audio processing    |
+
+**Practical Lab 34F — Audio Analysis Notebook**
+
+Build a notebook that accepts an audio file and displays:
+
+- Audio playback
+- File information
+- Sampling rate
+- Number of channels
+- Duration
+- Waveform
+- Amplitude statistics
+- RMS energy
+- ZCR
+- FFT frequency spectrum
+- STFT
+- Spectrogram
+- Noise analysis
+- Filtering
+- Audio enhancement
+
+Module 34 Completion Project
+
+**Project: Digital Audio Analysis & Enhancement Toolkit**
+
+You should be able to load an unfamiliar audio recording, inspect its properties, understand its signal, visualize its frequency content and perform basic enhancement.
+
+---
+
+# MODULE 35 — AUDIO REPRESENTATIONS & FEATURE ENGINEERING FOR MACHINE LEARNING
+
+**Purpose:** Learn how to turn a speech recording into useful numerical representations for an emotion classifier.
+
+## 35.1 — ML-Specific Audio Preparation
+
+### Learn
+- Consistent sample-rate handling and actual resampling
+- Mono conversion and channel-selection considerations
+- Amplitude normalization and its limitations
+- Trimming and padding recordings
+- Fixed-length versus variable-length inputs
+- Audio segmentation and utterance boundaries
 - Voice Activity Detection (VAD)
-- Audio segmentation
-- Fixed-length audio
-- Padding
-- Trimming
-- Audio augmentation
+- Speech-region detection versus emotion-bearing pauses
+- Handling recordings with different durations
+- Reproducible preprocessing functions
 
-### Audio Augmentation
+### Practical Lab 35A — Preprocessing Pipeline
 
-- Adding background noise
+Create a function that:
+1. Loads an audio recording.
+2. Checks sample rate, channels, duration, and amplitude.
+3. Converts it to the chosen channel format.
+4. Resamples only when required.
+5. Trims or pads it according to a chosen strategy.
+6. Returns the processed waveform and metadata.
+
+**Important:** Keep the original recording. Avoid aggressive silence removal or loudness normalization that could remove emotion-related information.
+
+## 35.2 — Frame-Level and Utterance-Level Features
+
+### Learn
+- Frame-level features versus utterance-level features
+- Short-time feature sequences
+- Mean, standard deviation, minimum, maximum, and range
+- Percentiles and statistical pooling
+- Temporal variation across an utterance
+- Feature aggregation into fixed-length vectors
+- Why averaging every frame can discard emotional dynamics
+
+### Retain and apply
+- RMS energy statistics
+- Short-time energy statistics
+- Zero Crossing Rate (ZCR) statistics
+- Duration and silence-related measurements
+
+### Practical Lab 35B — Time-Domain Feature Vectors
+
+For each recording:
+1. Calculate frame-level RMS and ZCR.
+2. Calculate utterance-level mean and standard deviation.
+3. Visualize how the values change over time.
+4. Store the measurements in one row per recording.
+
+## 35.3 — Spectral Features for Emotion Recognition
+
+### Learn
+- Spectral centroid
+- Spectral bandwidth
+- Spectral rolloff
+- Spectral contrast
+- Spectral flux
+- Spectral flatness
+- Frame-level extraction
+- Utterance-level statistical aggregation
+- What each feature captures and its limitations
+
+### Priority
+- **Core:** Spectral centroid, bandwidth, rolloff
+- **Useful:** Spectral contrast and flux
+- **Optional:** Spectral flatness
+
+### Practical Lab 35C — Spectral Feature Extraction
+
+Extract selected spectral features from several speech recordings. Compare their distributions across recordings and emotion labels.
+
+## 35.4 — Mel Scale and Mel Filter Banks
+
+### Learn
+- Why human frequency perception is nonlinear
+- Linear frequency scale versus Mel scale
+- Hertz-to-Mel and Mel-to-Hertz conversion
+- Mel filter banks
+- Triangular Mel filters
+- Applying Mel filters to a power spectrum
+- Number of Mel bands
+- What Mel scaling preserves and compresses
+- Hertz spectrogram versus Mel spectrogram
+
+**Keep the theory focused:** No need to repeat auditory anatomy in detail. Understand why Mel representations are commonly used in speech models.
+
+## 35.5 — Mel Spectrogram and Log-Mel Spectrogram
+
+### Learn
+- Power spectrogram as input to Mel filtering
+- Mel spectrogram generation
+- Log-Mel transformation
+- Power-to-decibel conversion
+- Dynamic range compression
+- Number of Mel bands
+- FFT size, hop length, and window length
+- How parameter choices change the representation
+- Fixed-size model inputs
+- Normalizing Mel features using training-set statistics
+
+### Practical Lab 35D — Mel Feature Notebook
+
+Generate and compare:
+1. Waveform
+2. STFT spectrogram
+3. Mel spectrogram
+4. Log-Mel spectrogram
+
+Experiment with different Mel-band counts and frame settings.
+
+## 35.6 — Mel-Frequency Cepstral Coefficients (MFCC)
+
+**High priority — understand the complete extraction process.**
+
+### Learn
+- What MFCCs represent
+- Cepstrum and cepstral representation
+- MFCC versus Mel spectrogram
+- Why MFCCs are useful as compact speech features
+- Pre-emphasis (optional in modern pipelines)
+- Framing and windowing (brief recap)
+- Power spectrum
+- Mel filter bank
+- Logarithmic compression
+- Discrete Cosine Transform (DCT)
+- MFCC coefficient matrix
+- Number of coefficients
+- C0 and higher-order coefficients
+- Delta MFCC
+- Delta-delta MFCC
+- Cepstral Mean Normalization (CMN)
+- Cepstral Mean and Variance Normalization (CMVN)
+- Sensitivity to noise and information loss
+
+### MFCC Extraction Pipeline
+
+Raw Audio
+    ↓
+Pre-emphasis (optional)
+    ↓
+Framing
+    ↓
+Windowing
+    ↓
+FFT
+    ↓
+Power Spectrum
+    ↓
+Mel Filter Banks
+    ↓
+Logarithm
+    ↓
+Discrete Cosine Transform
+    ↓
+MFCC Coefficients
+
+### Practical Lab 35E — MFCC Extraction
+
+1. Extract MFCCs from multiple speech recordings.
+2. Visualize MFCC matrices.
+3. Change the number of coefficients.
+4. Extract delta and delta-delta coefficients.
+5. Compare recordings with different emotion labels.
+6. Compare frame-level MFCCs with utterance-level statistical summaries.
+
+## 35.7 — Pitch, Prosody and Voice-Related Features
+
+**Very important for SER.**
+
+### Learn
+- Fundamental frequency (F0) and perceived pitch
+- Pitch tracking
+- Voiced and unvoiced frames
+- Pitch contour
+- Mean, minimum, maximum, standard deviation, and range of F0
+- Pitch variation over time
+- RMS energy contour
+- Speaking rate
+- Pause duration and silence ratio
+- Rhythm and timing
+- Jitter and shimmer
+- Harmonics-to-noise ratio (HNR)
+- Formants and vocal-tract resonance
+
+### Practical Lab 35F — Prosodic Feature Extraction
+
+For each recording:
+1. Estimate the F0 contour.
+2. Identify voiced and unvoiced regions.
+3. Calculate pitch statistics.
+4. Calculate energy statistics.
+5. Estimate pause and duration-related features.
+6. Visualize pitch and energy contours together.
+7. Save the features with the recording ID.
+
+**Caution:** Pitch trackers can make octave errors and fail on unvoiced or noisy regions. Inspect estimates instead of treating every output as correct.
+
+## 35.8 — Comparing Audio Representations
+
+### Learn
+- Waveform versus spectrogram
+- Spectrogram versus Mel spectrogram
+- Mel spectrogram versus Log-Mel
+- Log-Mel versus MFCC
+- Handcrafted features versus learned representations
+- Frame-level versus utterance-level representations
+- Fixed-length vectors versus variable-length sequences
+- Feature concatenation
+- Feature scaling and standardization
+- Feature selection
+- Principal Component Analysis (PCA)
+
+### Practical Lab 35G — Reusable Feature Extractor
+
+Build a reusable function that accepts an audio file and returns:
+- MFCC statistics
+- Delta and delta-delta MFCC statistics
+- Pitch statistics
+- RMS statistics
+- Selected spectral statistics
+- Duration and pause-related features
+- Log-Mel representation
+- Recording metadata
+
+Save extracted features and labels in a structured file.
+
+## 35.9 — Audio Augmentation for SER
+
+### Learn
+- Why augmentation is used
+- Background-noise addition
+- Small volume variations
+- Time shifting
 - Time stretching
 - Pitch shifting
-- Volume variation
-- Time shifting
-- Speed variation
+- Random cropping
+- Augmentation strength and realism
+- How augmentation can change perceived emotion
+- Why augmentation must be applied only to training data
 
-## 34.7 Speech Feature Extraction
+### Practical Lab 35H — Safe Augmentation
 
-Understand how meaningful information is extracted from speech signals.
+Create original and augmented versions of selected training recordings. Listen to them and compare pitch, duration, energy, and emotion-bearing characteristics.
 
-### Time-Domain Features
+### Module 35 Completion Deliverable
 
-- Mean amplitude
+**Audio Feature Extraction Toolkit**
+
+A notebook or Python module that:
+- Accepts a speech recording
+- Performs consistent preprocessing
+- Extracts MFCC, pitch, energy, and selected spectral features
+- Generates Log-Mel spectrograms
+- Produces fixed-length feature vectors
+- Saves features and metadata
+
+---
+
+# MODULE 36 — SPEECH EMOTION RECOGNITION & DATASET ENGINEERING
+
+**Purpose:** Understand emotional vocal expression, choose a suitable dataset, and prepare a reliable training and evaluation dataset.
+
+## 36.1 — Foundations of Speech Emotion Recognition
+
+### Learn
+- What is Speech Emotion Recognition (SER)?
+- Audio-based versus text-based emotion recognition
+- Speech emotion recognition versus sentiment analysis
+- Speech emotion recognition versus speaker recognition
+- Emotion classification and emotion intensity
+- Categorical versus dimensional emotion representation
+- Valence and arousal
+- Emotion expression versus actual internal emotional state
+- Real-world applications and limitations
+
+**Important:** An SER model predicts patterns associated with dataset emotion labels. A voice recording alone cannot reliably reveal a person's true internal emotional state.
+
+## 36.2 — How Emotions Affect Vocal Expression
+
+### Learn
+- How vocal-fold tension and vibration can change
+- How F0 and pitch variation may change
+- Changes in vocal intensity and energy
+- Breathing patterns and breathiness
+- Articulation and speaking rate
+- Pauses, rhythm, and fluency
+- Voice quality: breathiness, roughness, creakiness, and strain
+- Intonation and emphasis
+- Why emotional patterns vary between speakers and situations
+
+### Practical Lab 36A — Same Sentence, Different Expressions
+
+Record the same sentence using several intended emotional expressions.
+
+Compare:
+- Pitch contours
 - RMS energy
-- Zero Crossing Rate (ZCR)
-- Signal energy
+- Speaking rate and pauses
+- MFCC
+- Log-Mel spectrogram
+- Voice quality where measurable
 
-### Frequency-Domain Features
+## 36.3 — Emotion Categories and Acoustic Patterns
 
+### Learn
+- Neutral
+- Happy
+- Sad
+- Angry
+- Fearful
+- Disgust
+- Surprised
+- Typical tendencies in pitch, energy, timing, and voice quality
+- High-arousal versus low-arousal expressions
+- Similarities between emotion classes
+- Why neutral and subtle emotions can be difficult to classify
+- Speaker, language, accent, acting style, and recording effects
+
+**Important:** These are tendencies, not fixed rules. Do not assume that high pitch always means happiness.
+
+## 36.4 — Emotion-Relevant Feature Groups
+
+### A. Pitch and prosody
+- Mean, minimum, maximum, and standard deviation of F0
+- Pitch range and contour
+- Pitch variability
+- Speaking rate and pauses
+
+### B. Energy
+- RMS mean and standard deviation
+- Energy range and contour
+- Short-time energy statistics
+
+### C. Spectral
+- MFCC and delta MFCC
 - Spectral centroid
 - Spectral bandwidth
 - Spectral rolloff
 - Spectral contrast
 - Spectral flux
 
-### Important Speech Features
+### D. Voice quality
+- Jitter
+- Shimmer
+- HNR
+- Formant measurements
 
-- Mel scale
-- Mel spectrogram
-- Mel-Frequency Cepstral Coefficients (MFCC)
-- Chroma features
-- Log-Mel spectrogram
+Prioritize robust MFCC, pitch, and energy features before spending significant time on difficult voice-quality measurements.
 
-Understand:
+## 36.5 — SER Dataset Selection
 
-- Why MFCC is used in speech processing
-- Why Mel scale approximates human auditory perception
-- Difference between waveform, spectrogram and MFCC
-- How speech features represent vocal characteristics
+Study the following datasets and select one primary dataset before beginning model training.
 
-### Practical Lab
+### A. RAVDESS
+- Dataset structure and file naming
+- Emotion labels and intensity labels
+- Actor identification
+- Speech versus song recordings
+- Speaker distribution
+- Recording characteristics
 
-Extract and visualize:
+### B. CREMA-D
+- Dataset structure and file naming
+- Actor identification
+- Emotion labels and intensity labels
+- Sentence variation
+- Audio and video components
+- Speaker distribution
 
-- Waveform
-- Spectrogram
-- Mel spectrogram
-- MFCC
-- RMS energy
-- Zero Crossing Rate
-
-## 34.8 Speech Recognition Fundamentals
-
-Understand how computers convert spoken language into text.
-
-### ASR Pipeline
-
-```
-Human Speech
-     ↓
-Audio Recording
-     ↓
-Audio Preprocessing
-     ↓
-Feature Extraction
-     ↓
-Speech Recognition Model
-     ↓
-Text Prediction
-     ↓
-Recognized Sentence
-```
-
-### Traditional ASR Concepts
-
-- Acoustic modelling
-- Language modelling
-- Pronunciation modelling
-- Phonemes
-- Graphemes
-- Vocabulary
-- Word decoding
-- Hidden Markov Models (HMM)
-- Gaussian Mixture Models (GMM)
-
-### Modern ASR Concepts
-
-- Deep learning-based ASR
-- CTC (Connectionist Temporal Classification)
-- Encoder-decoder architecture
-- Attention mechanism
-- Transformer-based ASR
-- End-to-end speech recognition
-- Self-supervised speech learning
-
-Understand the difference between traditional and modern ASR architectures.
-
-## 34.9 Modern Speech Recognition Models
-
-Study the following models conceptually and practically:
-
-- DeepSpeech
-- Wav2Vec 2.0
-- Whisper
-- Speech Transformer
-
-Focus on:
-
-- Model architecture
-- Input representation
-- Training approach
-- Output generation
-- Multilingual support
-- Advantages and limitations
-
-### Practical Lab
-
-Use a pretrained Whisper model to:
-
-1. Load an audio recording.
-2. Perform speech-to-text transcription.
-3. Display the recognized text.
-4. Compare the transcription with the actual sentence.
-5. Experiment with different audio recordings.
-
-## 34.10 Speech Recognition Evaluation
-
-Understand how to evaluate speech-to-text systems.
-
-- Word Error Rate (WER)
-- Character Error Rate (CER)
-- Substitution
-- Deletion
-- Insertion
-- Transcription accuracy
-- Language-specific errors
-- Background noise effects
-- Accent-related recognition errors
-
-Word Error Rate:
-
-\\[ WER = \frac{S+D+I}{N} \\]
-
-Where:
-
-- S = Substitutions
-- D = Deletions
-- I = Insertions
-- N = Number of words in reference transcription
-
-## 34.11 Practical Audio Libraries
-
-Learn practical usage of:
-
-| Library        | Purpose                                        |
-| -------------- | ---------------------------------------------- |
-| `librosa`      | Audio loading, analysis and feature extraction |
-| `soundfile`    | Reading and writing audio                      |
-| `sounddevice`  | Recording and playing audio                    |
-| `scipy.signal` | Signal processing and filtering                |
-| `matplotlib`   | Audio visualization                            |
-| `torchaudio`   | PyTorch audio processing                       |
-| `transformers` | Pretrained ASR models                          |
-
-## 34.12 Practical Lab — Complete Audio Analysis Toolkit
-
-Build a Python notebook that accepts an audio file and generates:
-
-```
-Audio File
-    |
-    ├── Audio Playback
-    |
-    ├── Audio Information
-    |      ├── Duration
-    |      ├── Sampling Rate
-    |      ├── Channels
-    |      └── Bit Depth
-    |
-    ├── Waveform Visualization
-    |
-    ├── Spectrogram
-    |
-    ├── Noise Analysis
-    |
-    ├── Noise Reduction
-    |
-    ├── MFCC Extraction
-    |
-    └── Speech-to-Text
-```
-
-### Project
-
-Audio Analysis & Speech-to-Text Toolkit
-
-# MODULE 35 — SPEECH EMOTION RECOGNITION (SER)
-
-Recommended before the emotion classification project
-
-Now we move from understanding what a person says to understanding how a person sounds while saying it.
-
-## 35.1 Speech Emotion Recognition Fundamentals
-
-- What is Speech Emotion Recognition?
-- Speech vs text-based emotion classification
-- Acoustic characteristics of emotions
-- Vocal expression
-- Prosody
-- Pitch variation
-- Speaking rate
-- Voice intensity
-- Emotional speech patterns
-
-## 35.2 Emotion-Related Audio Features
-
-- MFCC
-- Mel spectrogram
-- Pitch (F0)
-- RMS energy
-- Zero Crossing Rate
-- Spectral centroid
-- Spectral bandwidth
-- Chroma
-- Prosodic features
-
-## 35.3 Emotion Classification
-
-Understand:
-
-- Binary classification
-- Multiclass classification
+### C. TESS
+- Dataset structure
 - Emotion labels
-- Class imbalance
-- Feature extraction
-- Feature normalization
+- Speaker information
+- Recording characteristics
+- Limitations of speaker and recording diversity
 
-Typical emotions:
-
-- Happy
-- Sad
-- Angry
-- Neutral
-- Fearful
-- Disgust
-- Surprised
-
-## 35.4 Dataset Understanding
-
-Study:
-
-- RAVDESS
-- CREMA-D
-- TESS
-- SAVEE
-
-Understand:
-
-- Audio dataset structure
+### D. SAVEE
+- Dataset structure
+- Speaker information
 - Emotion labels
-- Speaker IDs
-- Class distribution
-- Audio duration
-- Sampling rates
-- Train/validation/test splitting
-- Speaker-independent splitting
-- Dataset leakage
+- Recording characteristics
+- Dataset limitations
 
-## 35.5 Practical Feature Extraction
-
-Implement:
-
-- Audio loading
-- Waveform visualization
-- Noise analysis
-- MFCC extraction
-- Mel spectrogram extraction
-- Pitch extraction
-- RMS energy extraction
-- Feature aggregation
-
-## 35.6 Model Development
+### Dataset Comparison
 
 Compare:
+- Number of recordings
+- Number of speakers
+- Emotion categories
+- Language
+- Recording conditions
+- Class distribution
+- Speaker diversity
+- Dataset limitations and likely biases
 
-- MFCC + Logistic Regression
-- MFCC + SVM
-- MFCC + Random Forest
-- CNN + Mel Spectrogram
-- CNN + LSTM
-- Pretrained audio models
+**Selection guidance:** Start with one dataset and complete a reliable baseline. Add another dataset only when the first pipeline works. Do not merge datasets blindly.
 
-## 35.7 Evaluation
+## 36.6 — Dataset Preparation and Data Engineering
 
+### Learn
+- Downloading and extracting datasets
+- Directory structure
+- Reading metadata and file names
+- Extracting emotion labels
+- Speaker ID extraction
+- Label mapping
+- Audio validation
+- Detecting corrupted and duplicate files
+- Handling missing data
+- Class distribution
+- Label encoding
+- Building a metadata DataFrame
+- Keeping recording ID, speaker ID, emotion label, and file path together
+
+### Practical Lab 36B — Dataset Loader
+
+Build a dataset loader that:
+1. Scans the dataset directory.
+2. Reads each recording's metadata.
+3. Extracts speaker and emotion labels.
+4. Checks whether audio files can be loaded.
+5. Detects missing or duplicate entries.
+6. Creates a clean metadata table.
+7. Reports recordings per emotion and speaker.
+
+## 36.7 — Dataset Splitting and Leakage Prevention
+
+**Critical topic — do not skip.**
+
+### Learn
+- Training, validation, and test sets
+- Random splitting
+- Stratified splitting
+- Group-based splitting
+- Speaker-independent splitting
+- Cross-validation with speaker groups
+- Data leakage
+- Speaker leakage
+- Duplicate leakage
+- Train-test contamination
+- Why high test accuracy can be misleading when the same speaker appears in training and testing
+
+### Required Evaluation Principle
+
+All recordings from a speaker must remain in the same partition for a speaker-independent evaluation.
+
+### Practical Lab 36C — Reliable Data Split
+
+Create training, validation, and test partitions using speaker IDs.
+
+Verify that:
+- No speaker occurs in more than one partition.
+- Emotion classes are represented as well as the dataset permits.
+- No duplicate recording crosses partitions.
+- Validation and test recordings are not used for augmentation or model fitting.
+
+## 36.8 — Class Imbalance and Training-Only Augmentation
+
+### Learn
+- Balanced versus imbalanced classes
+- Majority and minority classes
+- How imbalance affects predictions
+- Class weights
+- Weighted loss
+- Random oversampling and undersampling
+- Focal loss (conceptual)
+- Audio augmentation strategies from Module 35
+- Why validation and test data must remain untouched
+
+### Practical Lab 36D — Class Distribution and Imbalance
+
+Visualize class counts. Compare a baseline training setup with a class-weighted setup where appropriate.
+
+Apply augmentation only after splitting, and only to training recordings.
+
+## 36.9 — Exploratory Data Analysis for SER
+
+### Learn
+- Emotion-class distribution
+- Speaker distribution
+- Recording duration distribution
+- Sampling-rate and channel checks
+- Feature distributions by emotion
+- MFCC distributions
+- Pitch and energy distributions
+- Correlation analysis
+- Outlier detection
+- PCA visualization
+- t-SNE (conceptual; optional visualization)
+
+### Practical Lab 36E — Dataset EDA Notebook
+
+Build an EDA notebook that includes:
+- Emotion and speaker counts
+- Recording-duration plots
+- Representative waveforms and Log-Mel spectrograms
+- Pitch and energy comparisons
+- MFCC feature distributions
+- Feature correlations
+- PCA visualization of extracted features
+
+### Module 36 Completion Deliverable
+
+**SER Dataset and Feature Analysis System**
+
+Deliver:
+- Dataset loader
+- Clean metadata table
+- Emotion and speaker distribution analysis
+- Audio validation report
+- Audio and feature visualizations
+- Speaker-independent train/validation/test splits
+- Extracted feature dataset
+- Documented dataset limitations
+
+---
+
+# MODULE 37 — SPEECH EMOTION CLASSIFICATION: MACHINE LEARNING & DEEP LEARNING
+
+**Purpose:** Train and compare emotion classifiers, evaluate their ability to generalize to unseen speakers, and build an inference application.
+
+## 37.1 — Classification Concepts Required for SER
+
+### Learn
+- Multiclass classification
+- Features, labels, and class indices
+- Training, validation, and test data
+- Decision boundaries
+- Class probabilities
+- Softmax and argmax
+- Cross-entropy loss
+- Overfitting and underfitting
+- Generalization
+- Bias-variance trade-off
+- Confusion between similar emotion classes
+
+Focus on applying these concepts to an imbalanced, speaker-dependent audio problem.
+
+## 37.2 — Traditional Machine Learning Baselines
+
+Start with handcrafted, fixed-length feature vectors from Module 35.
+
+### A. Logistic Regression
+- Multiclass classification
+- Softmax probabilities
+- Regularization
+- Feature scaling
+
+### B. Support Vector Machine (SVM)
+- Hyperplane and maximum margin
+- Support vectors
+- Linear and RBF kernels
+- C and gamma parameters
+- Feature scaling
+
+### C. Random Forest
+- Decision trees
+- Bootstrap sampling
+- Random feature selection
+- Ensemble voting
+- Feature importance
+
+### D. K-Nearest Neighbors (KNN)
+- Distance-based classification
+- Euclidean and Manhattan distance
+- K parameter
+- Importance of feature scaling
+
+### E. Gradient Boosting
+- Boosting concept
+- Sequential weak learners
+- XGBoost or LightGBM (optional practical extension)
+
+### Practical Lab 37A — Traditional ML Baselines
+
+Train and compare:
+- Logistic Regression
+- SVM
+- Random Forest
+- KNN
+
+Test feature combinations:
+- MFCC statistics
+- MFCC + pitch
+- MFCC + RMS energy
+- MFCC + selected spectral features
+- Combined acoustic features
+
+Use the same speaker-independent data split for fair comparison. Fit scalers only on the training data.
+
+## 37.3 — Deep Learning Foundations for Audio Classification
+
+### Learn
+- Neural-network layers, weights, and biases
+- Forward propagation
+- Backpropagation
+- Activation functions
+- Gradient descent and optimizers
+- Learning rate
+- Batch size and epochs
+- Cross-entropy loss
+- Dropout
+- Batch normalization
+- Weight initialization
+- Regularization
+- Early stopping
+- Training and validation curves
+
+## 37.4 — CNN for Log-Mel Spectrogram Classification
+
+**Core deep-learning model.**
+
+### Learn
+- Why a spectrogram can be represented as a 2D input
+- 2D convolution
+- Filters and kernels
+- Feature maps
+- Stride and padding
+- Receptive field
+- ReLU
+- Max pooling and average pooling
+- Flattening versus global pooling
+- Fully connected layers
+- Softmax classification
+
+### CNN Architecture
+
+Log-Mel Spectrogram
+        ↓
+Convolution + ReLU
+        ↓
+Pooling
+        ↓
+Convolution + ReLU
+        ↓
+Pooling
+        ↓
+Global Pooling / Flatten
+        ↓
+Fully Connected Layer
+        ↓
+Softmax
+        ↓
+Emotion Prediction
+
+### Practical Lab 37B — CNN Emotion Classifier
+
+1. Prepare fixed-shape Log-Mel inputs.
+2. Build a CNN classifier.
+3. Train using the training partition.
+4. Monitor validation loss and metrics.
+5. Save the best checkpoint.
+6. Evaluate on the held-out test partition.
+7. Inspect the confusion matrix and misclassified examples.
+
+## 37.5 — Sequence Modelling: RNN, LSTM and GRU
+
+### Learn
+- Sequential data and temporal dependencies
+- Recurrent Neural Networks (RNN)
+- Hidden states
+- Unrolled RNN
+- Vanishing and exploding gradients
+- Backpropagation Through Time
+- Long Short-Term Memory (LSTM)
+- Cell state and hidden state
+- Forget, input, and output gates
+- Gated Recurrent Unit (GRU)
+- Update and reset gates
+- LSTM versus GRU
+
+### Practical Understanding
+- CNN: learns local time-frequency patterns.
+- LSTM/GRU: models temporal dependencies.
+- CNN-LSTM: combines local spectral feature learning and temporal modelling.
+
+## 37.6 — CNN-LSTM for SER
+
+### Learn
+- CNN feature extraction from spectrograms
+- Converting feature maps into a sequence
+- Passing sequences to an LSTM
+- Temporal aggregation
+- Classification layer
+- Advantages and limitations of CNN-LSTM
+
+### Architecture
+
+Log-Mel Spectrogram
+        ↓
+CNN Layers
+        ↓
+Feature Maps
+        ↓
+Sequence Representation
+        ↓
+LSTM
+        ↓
+Fully Connected Layer
+        ↓
+Emotion Prediction
+
+### Practical Lab 37C — CNN-LSTM Classifier
+
+Build and train a CNN-LSTM model. Compare it with the CNN using the same data partitions and evaluation metrics.
+
+Keep this model only if it adds meaningful value.
+
+## 37.7 — Transformer-Based and Pretrained Speech Representations
+
+**Important modern approach.** Focus on understanding and using pretrained representations, rather than implementing a large Transformer from scratch.
+
+### Learn
+- Why attention helps sequence modelling
+- Self-attention and multi-head attention
+- Positional information
+- Transformer encoder
+- Contextual representations
+- Self-supervised speech learning
+- Pretraining and fine-tuning
+- Transfer learning
+- Frozen encoder versus trainable encoder
+- Classification head
+
+### Model Families
+
+- **Wav2Vec 2.0:** Learns speech representations from raw audio through self-supervised pretraining.
+- **HuBERT:** Learns contextual speech representations using masked prediction.
+- **WavLM:** Pretrained speech representations designed for a range of speech tasks.
+- **Audio Spectrogram Transformer (AST):** Applies Transformer-based learning to spectrogram inputs.
+
+### Practical Priorities
+
+1. Use one pretrained speech encoder to extract representations.
+2. Train a simple emotion-classification head.
+3. Compare a frozen encoder with partial or full fine-tuning only if resources permit.
+4. Compare results with handcrafted-feature and CNN baselines.
+
+### Practical Lab 37D — Pretrained Audio Representation Classifier
+
+Use one suitable pretrained model. Extract embeddings or fine-tune it for the emotion labels.
+
+Record:
+- Model name
+- Preprocessing requirements
+- Sample rate
+- Input format
+- Training configuration
+
+**Compute note:** Start with a frozen encoder or feature extraction approach if GPU memory or training time is limited.
+
+## 37.8 — Training and Experiment Management
+
+### Learn
+- Training and validation loops
+- Batching and data loaders
+- Optimizers and learning-rate scheduling
+- Training versus validation loss
+- Training versus validation metrics
+- Early stopping
+- Checkpoint saving
+- Best-model selection
+- Random seeds
+- Reproducibility
+- Hyperparameter tuning
+- Experiment tracking
+- Consistent preprocessing between training and inference
+
+### Practical Lab 37E — Experiment Log
+
+For every experiment, record:
+- Model architecture
+- Input representation
+- Dataset and split
+- Feature configuration
+- Augmentation settings
+- Hyperparameters
+- Training and validation results
+- Test results
+- Training time and model size
+
+## 37.9 — Evaluation and Error Analysis
+
+**Do not judge the project using accuracy alone.**
+
+### Classification Metrics
 - Accuracy
 - Precision
 - Recall
 - F1-score
+- Macro F1-score
+- Weighted F1-score
 - Confusion matrix
-- Per-emotion performance
-- Speaker-independent evaluation
+- Per-class precision, recall, and F1-score
+
+### Additional Evaluation
+- One-vs-rest ROC-AUC (optional)
+- Precision-recall curves (optional)
+- Prediction confidence
+- Calibration (conceptual)
+- False positives and false negatives
+- Class-wise error analysis
+- Misclassified audio inspection
+
+### SER-Specific Evaluation
+- Speaker-independent performance
+- Speaker variation
+- Dataset bias
+- Class imbalance
+- Accent and language variation
+- Recording-condition robustness
+- Cross-dataset generalization (optional extension)
+
+### Practical Lab 37F — Model Evaluation Report
+
+For each candidate model:
+1. Calculate accuracy and macro F1-score.
+2. Display the confusion matrix.
+3. Report per-class precision and recall.
+4. Inspect representative errors.
+5. Compare results on the same held-out speakers.
+6. Explain limitations and likely sources of error.
+
+## 37.10 — Model Comparison and Ablation Studies
+
+### Compare Models
+
+| Model | Input |
+|---|---|
+| Logistic Regression | Handcrafted feature statistics |
+| SVM | Handcrafted feature statistics |
+| Random Forest | Combined acoustic features |
+| CNN | Log-Mel spectrogram |
+| CNN-LSTM | Log-Mel sequence |
+| Pretrained speech encoder | Learned speech representation |
+
+### Ablation Experiments
+- MFCC alone
+- Pitch alone
+- Energy alone
+- MFCC + pitch
+- MFCC + energy
+- MFCC + pitch + energy
+- Log-Mel CNN
+- Pretrained representations
+
+### Learn
+- Which feature groups contribute useful information
+- Whether added model complexity improves generalization
+- Whether a model performs differently across speakers
+- Why comparisons must use the same data split
+- Why small performance differences may not be statistically meaningful
+
+## 37.11 — Deployment and Inference
+
+### Learn
+- Saving trained models and preprocessing parameters
+- Loading checkpoints
+- Inference pipeline
+- Input validation
+- Consistent sample rate and channel handling
+- Feature extraction consistency
+- Class-index-to-emotion mapping
+- Prediction probabilities
+- Single-recording inference
+- Batch inference
+- Inference latency
+- Offline versus real-time classification
+- Basic API or application integration
+
+### Practical Lab 37G — Inference Pipeline
+
+Upload / Record Audio
+        ↓
+Validate Audio
+        ↓
+Preprocess Audio
+        ↓
+Generate Model Input
+        ↓
+Trained SER Model
+        ↓
+Prediction Probabilities
+        ↓
+Predicted Dataset Emotion Label
+        ↓
+Display Results
+
+Build a simple interface that accepts an audio file and displays:
+- Audio playback
+- Predicted emotion label
+- Class probabilities
+- Optional waveform or Log-Mel visualization
+
+Make clear that the output is a prediction of dataset vocal-emotion categories, not a definitive reading of a person's internal feelings.
+
+## 37.12 — Final Portfolio Project: Audio-Based Speech Emotion Recognition System
+
+### Stage 1 — Dataset Preparation
+- Select one primary dataset (RAVDESS or CREMA-D are possible starting points).
+- Download and inspect recordings.
+- Extract emotion and speaker labels.
+- Check corrupted and duplicate files.
+- Analyse class distribution.
+- Create speaker-independent train, validation, and test partitions.
+
+### Stage 2 — Exploratory Audio Analysis
+- Listen to representative recordings.
+- Visualize waveforms and Log-Mel spectrograms.
+- Analyse pitch and energy.
+- Compare acoustic patterns across emotion labels.
+- Document dataset limitations.
+
+### Stage 3 — Feature Engineering
+- Extract MFCC and delta MFCC.
+- Extract pitch and energy statistics.
+- Extract selected spectral features.
+- Build fixed-length feature vectors.
+- Generate Log-Mel inputs.
+- Save features and metadata.
+
+### Stage 4 — Traditional ML Baselines
+
+Train and compare:
+- Logistic Regression
+- SVM
+- Random Forest
+- KNN
+
+### Stage 5 — Deep-Learning Models
+
+Build and compare:
+- CNN using Log-Mel spectrograms
+- CNN-LSTM (if useful)
+- One pretrained speech representation classifier
+
+### Stage 6 — Evaluation
+- Accuracy
+- Macro F1-score
+- Per-class precision and recall
+- Confusion matrix
+- Speaker-independent test performance
 - Error analysis
+- Model comparison and ablation study
 
-### Project
+### Stage 7 — Deployment
+- Save the best model and preprocessing configuration.
+- Build an audio-upload interface.
+- Validate new recordings.
+- Run preprocessing and inference.
+- Display predicted label and class probabilities.
+- Test with recordings not used during training.
 
-Speech Emotion Classification System
+### Final Project Architecture
+
+                  AUDIO INPUT
+                      |
+                      v
+              AUDIO VALIDATION
+                      |
+                      v
+              AUDIO PREPROCESSING
+                      |
+                      v
+                REPRESENTATION
+                 /          \
+                v            v
+        HANDCRAFTED        LOG-MEL /
+          FEATURES        PRETRAINED
+                |         REPRESENTATION
+                v            |
+         TRADITIONAL ML       v
+            MODELS       DEEP LEARNING
+                |            |
+                v            v
+           ML RESULTS    DL RESULTS
+                 \          /
+                  v        v
+                MODEL COMPARISON
+                       |
+                       v
+                BEST MODEL SELECTION
+                       |
+                       v
+                EMOTION PREDICTION
+                       |
+                       v
+                 RESULTS INTERFACE
+
+### Final Deliverables
+- Clean dataset metadata
+- Speaker-independent data splits
+- Reusable preprocessing and feature-extraction code
+- EDA notebook
+- Traditional ML baseline models
+- Deep-learning model(s)
+- Pretrained-model experiment
+- Evaluation and comparison report
+- Saved best model
+- Inference application
+- README documenting setup, dataset, methodology, results, limitations, and how to run the project
+
+---
 
 # MODULE 49 — MODERN COMPUTER VISION: VISION TRANSFORMERS
 

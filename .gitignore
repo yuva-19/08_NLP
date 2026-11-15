@@ -1,25 +1,16 @@
+
 # =====================================
 # PRETRAINED EMBEDDINGS
 # =====================================
 
-# GloVe and other downloaded embedding files
 12 — PRETRAINED EMBEDDINGS/*.txt
 12 — PRETRAINED EMBEDDINGS/*.vec
 12 — PRETRAINED EMBEDDINGS/*.bin
 
-# =====================================
-# DATASETS
-# =====================================
 
-# Image datasets
-*.jpg
-*.jpeg
-*.png
-*.bmp
-*.tif
-*.tiff
-*.webp
-*.gif
+# =====================================
+# DATASETS & GENERATED DATA
+# =====================================
 
 # Dataset directories
 data/
@@ -32,23 +23,73 @@ validation/
 valid/
 test/
 
-# Large dataset files
+# Tabular datasets and generated files
+*.csv
+*.tsv
 *.parquet
 *.feather
+*.xls
+*.xlsx
+
+# Serialized datasets and Python objects
 *.pkl
 *.pickle
-*.h5
-*.hdf5
+*.joblib
+*.sav
+
+# Numerical and scientific data
 *.npy
 *.npz
 *.mat
+*.h5
+*.hdf5
+
+
+# =====================================
+# AUDIO DATASETS
+# =====================================
+
+*.wav
+*.mp3
+*.flac
+*.ogg
+*.m4a
+*.aac
+*.wma
+*.aiff
+*.aif
+*.opus
+
+
+# =====================================
+# IMAGE DATASETS
+# =====================================
+
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.tif
+*.tiff
+*.webp
+*.gif
+
+
+# =====================================
+# VIDEO DATASETS
+# =====================================
+
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
 
 
 # =====================================
 # MODEL WEIGHTS & CHECKPOINTS
 # =====================================
 
-# Ignore all model weights globally
 *.pth
 *.pt
 *.ckpt
@@ -57,28 +98,33 @@ test/
 *.tflite
 *.safetensors
 *.engine
+*.weights
 
-# Ignore checkpoint directories globally
+# Checkpoint and experiment directories
 checkpoints/
 weights/
 pretrained/
 runs/
 wandb/
 
-# =====================================
-# LANDMARK RECOGNITION - ALLOW CHECKPOINTS
-# =====================================
 
-!46 — LANDMARK RECOGNITION/checkpoints/
-!46 — LANDMARK RECOGNITION/checkpoints/best_feature_extraction.pth
+
 
 # =====================================
-# APPLE FACE ID - ALLOW CHECKPOINTS
+# APPLE FACE ID
+# ALLOW SPECIFIC CHECKPOINTS
 # =====================================
 
 !45 — APPLE FACE ID  (FACIAL RECOGNITION PROJECTS)/checkpoints/
 !45 — APPLE FACE ID  (FACIAL RECOGNITION PROJECTS)/checkpoints/epoch_checkpoint.pth
 !45 — APPLE FACE ID  (FACIAL RECOGNITION PROJECTS)/checkpoints/latest_checkpoint.pth
+
+
+# =====================================
+# HUGGING FACE CHECKPOINTS
+# =====================================
+
+**/checkpoint-*/
 
 
 # =====================================
@@ -89,6 +135,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+
 # =====================================
 # VIRTUAL ENVIRONMENTS
 # =====================================
@@ -98,11 +145,13 @@ venv/
 env/
 ENV/
 
+
 # =====================================
 # JUPYTER
 # =====================================
 
 .ipynb_checkpoints/
+
 
 # =====================================
 # IDE & EDITOR
@@ -112,6 +161,7 @@ ENV/
 .idea/
 *.swp
 *.swo
+
 
 # =====================================
 # LOGS & TEMPORARY FILES
@@ -123,6 +173,7 @@ tmp/
 temp/
 *.tmp
 
+
 # =====================================
 # OS FILES
 # =====================================
@@ -130,6 +181,7 @@ temp/
 .DS_Store
 Thumbs.db
 desktop.ini
+
 
 # =====================================
 # ENVIRONMENT VARIABLES
@@ -139,6 +191,7 @@ desktop.ini
 .env.*
 !.env.example
 
+
 # =====================================
 # BUILD FILES
 # =====================================
@@ -147,21 +200,9 @@ build/
 dist/
 *.egg-info/
 
+
 # =====================================
 # OTHER CACHE FILES
 # =====================================
 
 .cache/
-
-
-# =====================================
-# DATASETS
-# =====================================
-
-*.csv
-
-# =====================================
-# HUGGING FACE CHECKPOINTS
-# =====================================
-
-**/checkpoint-*/

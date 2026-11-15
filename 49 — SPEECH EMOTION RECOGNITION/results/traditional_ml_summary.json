@@ -1,0 +1,18 @@
+{
+    "selected_model": "Tuned RBF SVM",
+    "cv_weighted_f1": 0.4883985206624148,
+    "test_accuracy": 0.49666666666666665,
+    "test_weighted_f1": 0.4970543035104877,
+    "test_macro_f1": 0.49135072838166194,
+    "feature_count": 53,
+    "emotion_classes": [
+        "Angry",
+        "Calm",
+        "Disgust",
+        "Fearful",
+        "Happy",
+        "Neutral",
+        "Sad",
+        "Surprised"
+    ]
+}
