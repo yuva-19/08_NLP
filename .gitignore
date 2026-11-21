@@ -206,3 +206,14 @@ dist/
 # =====================================
 
 .cache/
+
+
+
+# TESLA OBJECT DETECTION 
+
+!/50 — TESLA AUTOPILOT CLONE — OBJECT DETECTION/
+!/50 — TESLA AUTOPILOT CLONE — OBJECT DETECTION/evaluation_outputs/
+!/50 — TESLA AUTOPILOT CLONE — OBJECT DETECTION/evaluation_outputs/**
+
+!/50 — TESLA AUTOPILOT CLONE — OBJECT DETECTION/outputs/
+!/50 — TESLA AUTOPILOT CLONE — OBJECT DETECTION/outputs/**
